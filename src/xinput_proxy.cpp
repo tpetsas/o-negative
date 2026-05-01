@@ -132,6 +132,7 @@ DWORD WINAPI XInputSetState(DWORD dwUserIndex, XINPUT_VIBRATION* pVibration) {
 
 extern "C" __declspec(dllexport)
 DWORD WINAPI XInputGetCapabilities(DWORD dwUserIndex, DWORD dwFlags, XINPUT_CAPABILITIES* pCapabilities) {
+    InitializeProxy();
 
     using Fn = DWORD (WINAPI*)(DWORD, DWORD, XINPUT_CAPABILITIES*);
     static Fn original = nullptr;
